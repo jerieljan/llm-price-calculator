@@ -71,7 +71,7 @@ def highlight_row(row, budget):
 
 def main():
     with st.sidebar:
-        with st.popover("Instructions"):
+        with st.popover("Overview"):
             st.markdown("""
                         ### Overview
 
@@ -83,7 +83,16 @@ def main():
                         This calculator will tell you how much it costs depending on the models listed on the right, and how much transactions
                         with that many tokens you can do with each model.
 
-                        You can also provide a "budget" below so you can see how much of it you'll burn if you were to perform that many in a month.                        
+                        You can also provide a "budget" below so you can see how much of it you'll burn if you were to perform that many in a month.
+                        
+                        ### Credits
+
+                        Pricing is based on [**OpenRouter**](https://openrouter.ai/)'s pricing, which generally provides the best pricing for public users.
+                        I strongly recommend the service!
+
+                        This Streamlit app was made by [**jerieljan**](https://links.jerieljan.com/contact).
+                        You can check the code and its GitHub repository here: https://github.com/jerieljan/llm-price-calculator
+
                         """)
         st.markdown("""
                     ## Input Parameters
