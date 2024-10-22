@@ -98,7 +98,7 @@ def main():
                     ## Input Parameters
                     Provide how much tokens you're expecting to use.
                     """)
-        input_tokens = st.number_input("Input Tokens (User Input)*sh*", min_value=1, value=1000, step=100)
+        input_tokens = st.number_input("Input Tokens (User Input)", min_value=1, value=1000, step=100)
         output_tokens = st.number_input("Output Tokens (User Output)", min_value=1, value=100, step=100)
         monthly_use = st.number_input("Monthly Transactions", min_value=1, value=1000)
         budget = st.number_input("Monthly Budget ($)", min_value=0.01, value=100.00, step=1.0)
