@@ -94,6 +94,20 @@ def main():
 
                         You can also provide a "budget" below so you can see how much of it you'll burn if you were to perform that many in a month.
                         
+                        ### I'm new to tokens, how does this work?
+                        
+                        API pricing is determined by these tokens. Every single token you send and receive comes at a cost.
+                        
+                        It's easier to see this for yourself using the [OpenAI Tokenizer](https://platform.openai.com/tokenizer). Try adding a few
+                        lines, and the number you get there is your input token if that's your prompt, and output token if that's the response that
+                        you get from an AI service.
+                        
+                        For some quick numbers in my experience:
+                        
+                        - A basic question and answer would take around 200–500 input and 200–500 output.
+                        - A programming query that has detailed requirements and samples, along with a code snippet of 300 lines long, can take around 2000–7000 input and output.
+                        - Using a vector store for a couple of documents (e.g., 40–100 pages), and querying around two paragraphs of system prompts can take around 30000 input at the minimum, and around 500–1000 output, depending on how chatty your response is.
+                        
                         ### Credits
 
                         Pricing is based on [**OpenRouter**](https://openrouter.ai/)'s pricing, which generally provides the best pricing for public users.
@@ -111,14 +125,17 @@ def main():
         output_tokens = st.number_input("Output Tokens (User Output)", min_value=1, value=100, step=100)
         monthly_use = st.number_input("Monthly Transactions", min_value=1, value=1000)
         budget = st.number_input("Monthly Budget ($)", min_value=0.01, value=100.00, step=1.0)
-        includes = st.text_input("Filter Keywords (comma-separated)", "")
-        excludes = st.text_input("Filter Exclusions (comma-separated)", "")
+        includes = st.text_input("Filter Keywords (comma-separated)", "gpt,gemini,claude-3,llama-3.2")
+        excludes = st.text_input("Filter Exclusions (comma-separated)", "free,moderated,extended,preview,experimental")
 
         with st.popover("Filtering Tips"):
             st.markdown(f"""
                         The first box filters the overall models list to what you provide (e.g., {includes}).
                         After that, the list is filtered further by removing models with keywords indicated in the second box (e.g., {excludes}).
-
+                        
+                        The provided default for example shows OpenAI, Google, Llama and Anthropic models, with the alternate endpoints excluded.
+                        Just clear this to get the entire list.
+                        
                         ### Examples:
 
                         - You can write `gpt,gemini,claude` in your keywords to get all OpenAI, Google and Anthropic models.
