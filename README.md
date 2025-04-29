@@ -4,6 +4,8 @@ A price calculator for LLM models and services, using Streamlit.
 
 You can view this app in action in [Streamlit](https://llm-price-calculator.streamlit.app/).
 
+(It's not as popular though, so wakeup might be needed)
+
 ## Requirements:
 
 - Python 3.x
