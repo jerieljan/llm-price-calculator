@@ -125,7 +125,7 @@ def main():
         output_tokens = st.number_input("Output Tokens (User Output)", min_value=1, value=100, step=100)
         monthly_use = st.number_input("Monthly Transactions", min_value=1, value=1000)
         budget = st.number_input("Monthly Budget ($)", min_value=0.01, value=100.00, step=1.0)
-        includes = st.text_input("Filter Keywords (comma-separated)", "gpt,gemini,claude-3,llama-3.2")
+        includes = st.text_input("Filter Keywords (comma-separated)", "gpt-4.1,gemini-2,sonnet-4,opus-4,kimi,llama-4")
         excludes = st.text_input("Filter Exclusions (comma-separated)", "free,moderated,extended,preview,experimental")
 
         with st.popover("Filtering Tips"):
