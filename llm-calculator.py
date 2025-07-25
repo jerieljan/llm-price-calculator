@@ -31,15 +31,15 @@ def calculate_prices(model, input_tokens, output_tokens, monthly_use, budget):
     user_balance = budget - user_monthly_cost
 
     return {
-        'id': model['id'],
-        'name': model['name'],
-        'input_price': input_price,
-        'output_price': output_price,
-        'transaction_price': transaction_price,
-        'user_transaction_cost': user_transaction_cost,
-        'user_monthly_cost': user_monthly_cost,
-        'user_balance': user_balance,
-        'user_tx_per_budget': user_tx_per_budget
+        'Model ID': model['id'],
+        'Model Name': model['name'],
+        'Input Price': input_price,
+        'Output Price': output_price,
+        'Total Price': transaction_price,
+        'Cost Per Query': user_transaction_cost,
+        'Monthly Cost': user_monthly_cost,
+        'Budget Remaining': user_balance,
+        'Queries Per Budget': user_tx_per_budget
     }
 
 
@@ -52,10 +52,10 @@ def filter_models(df, includes, excludes):
     filtered = df[df.apply(
         lambda row: (
                 (not includes or any(
-                    include.lower() in row['id'].lower() or include.lower() in row['name'].lower() for include in
+                    include.lower() in row['Model ID'].lower() or include.lower() in row['Model Name'].lower() for include in
                     includes)) and
                 (not excludes or all(
-                    exclude.lower() not in row['id'].lower() and exclude.lower() not in row['name'].lower() for exclude
+                    exclude.lower() not in row['Model ID'].lower() and exclude.lower() not in row['Model Name'].lower() for exclude
                     in excludes))
         ),
         axis=1
@@ -70,7 +70,7 @@ def format_price(value):
 
 
 def highlight_row(row, budget):
-    user_balance = row['user_balance']
+    user_balance = row['Budget Remaining']
     if user_balance <= 0:
         return ['background-color: #fecaca'] * len(row)
     elif user_balance <= budget * 0.2:
@@ -146,11 +146,11 @@ def main():
                         """)
 
         st.markdown(f"""
-                    Based on your input, the table on the right...
-                    - says that your query of {input_tokens} input tokens and {output_tokens} output tokens will cost you `user_transactions_cost` per query.
-                    - `user_monthly_cost` indicates your spend, if you were to run {input_tokens} + {output_tokens} at {monthly_use} times.
-                    - `user_balance` indicates how much money is left over from your budget at ${budget:,.2f}.
-                    - Finally, `user_tx_per_budget` tells you how many queries you can run with your ${budget:,.2f} budget.
+                    Based on your input, the table on the right explains:
+                    - **`Cost Per Query`**: The cost per query for your {input_tokens} input tokens and {output_tokens} output tokens.
+                    - **`Monthly Cost`**: Your estimated spend if you run {input_tokens} + {output_tokens} tokens {monthly_use} times per month.
+                    - **`Budget Remaining`**: The money remaining from your ${budget:,.2f} budget.
+                    - **`Queries Per Budget`**: How many queries you can run with your ${budget:,.2f} budget.
                     """)
 
         st.info("Prices are provided by [OpenRouter](https://openrouter.ai/) and their API.")
@@ -171,12 +171,12 @@ def main():
 
         # Format the DataFrame and apply the row highlighting based on user_balance
         styled_df = filtered_df.style.apply(highlight_row, budget=budget, axis=1).format({
-            'input_price': format_price,
-            'output_price': format_price,
-            'transaction_price': format_price,
-            'user_transaction_cost': format_price,
-            'user_monthly_cost': format_price,
-            'user_balance': format_price
+            'Input Price': format_price,
+            'Output Price': format_price,
+            'Total Price': format_price,
+            'Cost Per Query': format_price,
+            'Monthly Cost': format_price,
+            'Budget Remaining': format_price
         })
 
         # Display the styled DataFrame with increased height
