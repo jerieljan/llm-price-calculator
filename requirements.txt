@@ -30,12 +30,8 @@ jsonschema==4.23.0
     # via altair
 jsonschema-specifications==2024.10.1
     # via jsonschema
-markdown-it-py==3.0.0
-    # via rich
 markupsafe==3.0.2
     # via jinja2
-mdurl==0.1.2
-    # via markdown-it-py
 narwhals==1.22.0
     # via altair
 numpy==2.2.2
@@ -57,8 +53,6 @@ pyarrow==19.0.0
     # via streamlit
 pydeck==0.9.1
     # via streamlit
-pygments==2.19.1
-    # via rich
 python-dateutil==2.9.0.post0
     # via pandas
 pytz==2024.2
@@ -69,8 +63,6 @@ referencing==0.36.1
     #   jsonschema-specifications
 requests==2.32.3
     # via streamlit
-rich==13.9.4
-    # via streamlit
 rpds-py==0.22.3
     # via
     #   jsonschema
@@ -79,7 +71,7 @@ six==1.17.0
     # via python-dateutil
 smmap==5.0.2
     # via gitdb
-streamlit==1.41.1
+streamlit==1.47.0
     # via llm-price-calculator (pyproject.toml)
 tenacity==9.0.0
     # via streamlit
@@ -91,7 +83,6 @@ typing-extensions==4.12.2
     # via
     #   altair
     #   referencing
-    #   rich
     #   streamlit
 tzdata==2024.2
     # via pandas

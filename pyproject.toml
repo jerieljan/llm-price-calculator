@@ -5,5 +5,5 @@ description = "A price calculator for LLM models and services, using Streamlit."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "streamlit>=1.41.1",
+    "streamlit>=1.46.0",
 ]
