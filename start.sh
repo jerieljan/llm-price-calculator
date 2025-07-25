@@ -7,5 +7,5 @@ if [[ ! -f "$FILE" || $(find "$FILE" -mtime +1 -print) ]]; then
   echo "Downloading models list from Openrouter..."
   curl https://openrouter.ai/api/v1/models | jq > "$FILE"
 fi
-
-python -m streamlit run llm-calculator.py
+uv run streamlit run llm-calculator.py
+# python -m streamlit run llm-calculator.py

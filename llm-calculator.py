@@ -79,6 +79,7 @@ def highlight_row(row, budget):
 
 
 def main():
+
     with st.sidebar:
         with st.popover("Overview"):
             st.markdown("""
@@ -121,11 +122,11 @@ def main():
                     ## Input Parameters
                     Provide how much tokens you're expecting to use.
                     """)
-        input_tokens = st.number_input("Input Tokens (User Input)", min_value=1, value=1000, step=100)
-        output_tokens = st.number_input("Output Tokens (User Output)", min_value=1, value=100, step=100)
-        monthly_use = st.number_input("Monthly Transactions", min_value=1, value=1000)
+        input_tokens = st.number_input("Input Tokens (User Input)", min_value=1, value=5000, step=500)
+        output_tokens = st.number_input("Output Tokens (User Output)", min_value=1, value=1000, step=500)
+        monthly_use = st.number_input("Monthly Transactions", min_value=1, value=500)
         budget = st.number_input("Monthly Budget ($)", min_value=0.01, value=100.00, step=1.0)
-        includes = st.text_input("Filter Keywords (comma-separated)", "gpt-4.1,gemini-2,sonnet-4,opus-4,kimi,llama-4")
+        includes = st.text_input("Filter Keywords (comma-separated)", "gpt-4.1,o3,o4,gemini-2.5,sonnet-4,opus-4,kimi-k2,llama-4,qwen3-235")
         excludes = st.text_input("Filter Exclusions (comma-separated)", "free,moderated,extended,preview,experimental")
 
         with st.popover("Filtering Tips"):
