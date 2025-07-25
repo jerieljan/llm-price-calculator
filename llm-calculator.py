@@ -180,7 +180,7 @@ def main():
         })
 
         # Display the styled DataFrame with increased height
-        st.dataframe(styled_df, use_container_width=True, height=800, hide_index=True)
+        st.dataframe(styled_df, use_container_width=True, height=1000, hide_index=True)
 
     filter_message = ""
     if includes_list:
