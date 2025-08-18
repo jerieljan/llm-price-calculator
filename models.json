@@ -1976,6 +1976,57 @@
       ]
     },
     {
+      "id": "baidu/ernie-4.5-vl-424b-a47b",
+      "canonical_slug": "baidu/ernie-4.5-vl-424b-a47b",
+      "hugging_face_id": "baidu/ERNIE-4.5-VL-424B-A47B-PT",
+      "name": "Baidu: ERNIE 4.5 VL 424B A47B ",
+      "created": 1751300903,
+      "description": "ERNIE-4.5-VL-424B-A47B is a multimodal Mixture-of-Experts (MoE) model from Baidu’s ERNIE 4.5 series, featuring 424B total parameters with 47B active per token. It is trained jointly on text and image data using a heterogeneous MoE architecture and modality-isolated routing to enable high-fidelity cross-modal reasoning, image understanding, and long-context generation (up to 131k tokens). Fine-tuned with techniques like SFT, DPO, UPO, and RLVR, this model supports both “thinking” and non-thinking inference modes. Designed for vision-language tasks in English and Chinese, it is optimized for efficient scaling and can operate under 4-bit/8-bit quantization.",
+      "context_length": 123000,
+      "architecture": {
+        "modality": "text+image->text",
+        "input_modalities": [
+          "image",
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00000042",
+        "completion": "0.00000125",
+        "request": "0",
+        "image": "0",
+        "audio": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
+      },
+      "top_provider": {
+        "context_length": 123000,
+        "max_completion_tokens": 16000,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "reasoning",
+        "repetition_penalty",
+        "seed",
+        "stop",
+        "temperature",
+        "top_k",
+        "top_p"
+      ]
+    },
+    {
       "id": "baidu/ernie-4.5-300b-a47b",
       "canonical_slug": "baidu/ernie-4.5-300b-a47b",
       "hugging_face_id": "baidu/ERNIE-4.5-300B-A47B-PT",
@@ -2181,7 +2232,7 @@
       "name": "Mistral: Mistral Small 3.2 24B",
       "created": 1750443016,
       "description": "Mistral-Small-3.2-24B-Instruct-2506 is an updated 24B parameter model from Mistral optimized for instruction following, repetition reduction, and improved function calling. Compared to the 3.1 release, version 3.2 significantly improves accuracy on WildBench and Arena Hard, reduces infinite generations, and delivers gains in tool use and structured output tasks.\n\nIt supports image and text inputs with structured outputs, function/tool calling, and strong performance across coding (HumanEval+, MBPP), STEM (MMLU, MATH, GPQA), and vision benchmarks (ChartQA, DocVQA).",
-      "context_length": 131072,
+      "context_length": 128000,
       "architecture": {
         "modality": "text+image->text",
         "input_modalities": [
@@ -2195,8 +2246,8 @@
         "instruct_type": null
       },
       "pricing": {
-        "prompt": "0.00000001999188",
-        "completion": "0.0000000800064",
+        "prompt": "0.00000005",
+        "completion": "0.0000001",
         "request": "0",
         "image": "0",
         "audio": "0",
@@ -2204,7 +2255,7 @@
         "internal_reasoning": "0"
       },
       "top_provider": {
-        "context_length": 131072,
+        "context_length": 128000,
         "max_completion_tokens": null,
         "is_moderated": false
       },
@@ -6708,7 +6759,7 @@
       "name": "Google: Gemma 3 12B (free)",
       "created": 1741902625,
       "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities, including structured outputs and function calling. Gemma 3 12B is the second largest in the family of Gemma 3 models after [Gemma 3 27B](google/gemma-3-27b-it)",
-      "context_length": 96000,
+      "context_length": 32768,
       "architecture": {
         "modality": "text+image->text",
         "input_modalities": [
@@ -6731,7 +6782,7 @@
         "internal_reasoning": "0"
       },
       "top_provider": {
-        "context_length": 96000,
+        "context_length": 32768,
         "max_completion_tokens": 8192,
         "is_moderated": false
       },
@@ -6744,10 +6795,8 @@
         "min_p",
         "presence_penalty",
         "repetition_penalty",
-        "response_format",
         "seed",
         "stop",
-        "structured_outputs",
         "temperature",
         "top_k",
         "top_logprobs",
@@ -10789,8 +10838,8 @@
         "instruct_type": "chatml"
       },
       "pricing": {
-        "prompt": "0.0000025",
-        "completion": "0.000003",
+        "prompt": "0.00000125",
+        "completion": "0.0000015",
         "request": "0",
         "image": "0",
         "audio": "0",
@@ -11757,7 +11806,7 @@
       "name": "NeverSleep: Lumimaid v0.2 8B",
       "created": 1726358400,
       "description": "Lumimaid v0.2 8B is a finetune of [Llama 3.1 8B](/models/meta-llama/llama-3.1-8b-instruct) with a \"HUGE step up dataset wise\" compared to Lumimaid v0.1. Sloppy chats output were purged.\n\nUsage of this model is subject to [Meta's Acceptable Use Policy](https://llama.meta.com/llama3/use-policy/).",
-      "context_length": 40000,
+      "context_length": 32768,
       "architecture": {
         "modality": "text->text",
         "input_modalities": [
@@ -11770,8 +11819,8 @@
         "instruct_type": "llama3"
       },
       "pricing": {
-        "prompt": "0.00000017",
-        "completion": "0.00000099",
+        "prompt": "0.0000001",
+        "completion": "0.000000625",
         "request": "0",
         "image": "0",
         "audio": "0",
@@ -11779,8 +11828,8 @@
         "internal_reasoning": "0"
       },
       "top_provider": {
-        "context_length": 40000,
-        "max_completion_tokens": 40000,
+        "context_length": 32768,
+        "max_completion_tokens": 2048,
         "is_moderated": false
       },
       "per_request_limits": null,
@@ -14886,7 +14935,7 @@
       "name": "Noromaid 20B",
       "created": 1700956800,
       "description": "A collab between IkariDev and Undi. This merge is suitable for RP, ERP, and general knowledge.\n\n#merge #uncensored",
-      "context_length": 4096,
+      "context_length": 8192,
       "architecture": {
         "modality": "text->text",
         "input_modalities": [
@@ -14899,8 +14948,8 @@
         "instruct_type": "alpaca"
       },
       "pricing": {
-        "prompt": "0.000001",
-        "completion": "0.00000175",
+        "prompt": "0.000000625",
+        "completion": "0.000001",
         "request": "0",
         "image": "0",
         "audio": "0",
@@ -14908,8 +14957,8 @@
         "internal_reasoning": "0"
       },
       "top_provider": {
-        "context_length": 4096,
-        "max_completion_tokens": null,
+        "context_length": 8192,
+        "max_completion_tokens": 2048,
         "is_moderated": false
       },
       "per_request_limits": null,
@@ -14950,8 +14999,8 @@
         "instruct_type": "airoboros"
       },
       "pricing": {
-        "prompt": "0.000009",
-        "completion": "0.000011",
+        "prompt": "0.000005",
+        "completion": "0.00000625",
         "request": "0",
         "image": "0",
         "audio": "0",
@@ -15280,8 +15329,8 @@
         "instruct_type": "alpaca"
       },
       "pricing": {
-        "prompt": "0.0000015",
-        "completion": "0.0000015",
+        "prompt": "0.00000075",
+        "completion": "0.00000075",
         "request": "0",
         "image": "0",
         "audio": "0",
@@ -15329,8 +15378,8 @@
         "instruct_type": "alpaca"
       },
       "pricing": {
-        "prompt": "0.0000007",
-        "completion": "0.000001",
+        "prompt": "0.0000005",
+        "completion": "0.00000075",
         "request": "0",
         "image": "0",
         "audio": "0",
@@ -15339,7 +15388,7 @@
       },
       "top_provider": {
         "context_length": 6144,
-        "max_completion_tokens": null,
+        "max_completion_tokens": 1024,
         "is_moderated": false
       },
       "per_request_limits": null,
